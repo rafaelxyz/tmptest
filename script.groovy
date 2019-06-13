@@ -7,6 +7,7 @@ build_label = 'ah_build_gic'
 
 def lib
 node {
+    /*
     checkout([$class: 'GitSCM',
               branches: [[name: "${params.BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'WipeWorkspace']], submoduleCfg: [], 
               userRemoteConfigs: [[
@@ -15,7 +16,7 @@ node {
                   url: 'https://gerrit.ericsson.se/a/adp-gs/adp-gs-ah']]])
 
     //git credentialsId: 'gerrit-id', url: 'https://gerrit.ericsson.se/a/adp-gs/adp-gs-ah'
-    /*checkout([$class: 'GitSCM',
+    checkout([$class: 'GitSCM',
               branches: [[name: "${params.BRANCH}"]],
               doGenerateSubmoduleConfigurations: false,
               extensions: [[$class: 'CleanCheckout']], 
