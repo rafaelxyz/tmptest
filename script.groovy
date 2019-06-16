@@ -7,16 +7,17 @@ build_label = 'ah_build_gic'
 
 def lib
 node {
-    checkout([$class: 'GitSCM',
-              branches: [[name: "${params.BRANCH}"]],
-              doGenerateSubmoduleConfigurations: false,
-              extensions: [],
-              submoduleCfg: [],
-              userRemoteConfigs: [[credentialsId: 'gerrit-id',
-                //refspec: params.GERRIT_REFSPEC + ':' + params.GERRIT_REFSPEC,
-                //url: 'https://gerrit.ericsson.se/a/adp-gs/adp-gs-ah'
-                ]]
-            ])
+    git branch: 'newbranch'
+    //checkout([$class: 'GitSCM',
+    //          branches: [[name: "${params.BRANCH}"]],
+    //          doGenerateSubmoduleConfigurations: false,
+    //          extensions: [],
+    //          submoduleCfg: [],
+    //          userRemoteConfigs: [[credentialsId: 'gerrit-id',
+    //            //refspec: params.GERRIT_REFSPEC + ':' + params.GERRIT_REFSPEC,
+    //            //url: 'https://gerrit.ericsson.se/a/adp-gs/adp-gs-ah'
+    //            ]]
+    //        ])
 }
 
 def custom_checkout() {
