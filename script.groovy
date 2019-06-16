@@ -6,9 +6,9 @@ kubernetes_highload_label = 'kubernetes_ah_highload'
 build_label = 'ah_build_gic'
 
 def lib
-git branch: "${BRANCH}"
 
-//node {
+node {
+    git branch: "${BRANCH}"
     //checkout([$class: 'GitSCM',
     //          branches: [[name: "${params.BRANCH}"]],
     //          doGenerateSubmoduleConfigurations: false,
@@ -19,7 +19,7 @@ git branch: "${BRANCH}"
     //            //url: 'https://gerrit.ericsson.se/a/adp-gs/adp-gs-ah'
     //            ]]
     //        ])
-//}
+}
 
 def custom_checkout() {
     //branch='*/master'
