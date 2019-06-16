@@ -7,7 +7,7 @@ build_label = 'ah_build_gic'
 
 def lib
 node {
-    git branch: 'newbranch'
+    git branch: "${BRANCH}"
     //checkout([$class: 'GitSCM',
     //          branches: [[name: "${params.BRANCH}"]],
     //          doGenerateSubmoduleConfigurations: false,
