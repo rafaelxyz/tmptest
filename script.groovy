@@ -7,6 +7,16 @@ build_label = 'ah_build_gic'
 
 def lib
 node {
+    checkout([$class: 'GitSCM',
+              branches: [[name: "${params.BRANCH}"]],
+              doGenerateSubmoduleConfigurations: false,
+              extensions: [],
+              submoduleCfg: [],
+              userRemoteConfigs: [[credentialsId: 'gerrit-id',
+                //refspec: params.GERRIT_REFSPEC + ':' + params.GERRIT_REFSPEC,
+                //url: 'https://gerrit.ericsson.se/a/adp-gs/adp-gs-ah'
+                ]]
+            ])
 }
 
 def custom_checkout() {
@@ -27,7 +37,7 @@ pipeline {
     agent any
     parameters{
         string(name: 'GERRIT_REFSPEC', defaultValue: '', description: 'used when running tests on unmerged changes, when set it disables image delivery')
-        string(name: 'BRANCH', defaultValue: '*/master', description: '')
+        string(name: 'BRANCH', defaultValue: 'origin/master', description: '')
     }
     options {
         disableConcurrentBuilds()
